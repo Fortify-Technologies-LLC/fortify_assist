@@ -1,4 +1,8 @@
 """Home Assistant's own agent is never handed a sentence that could unlock or open something without asking."""
+import urllib.error
+import urllib.request
+
+import aiohttp
 import pytest
 
 from custom_components.fortify_assist.conversation import RISKY
@@ -18,9 +22,23 @@ def test_everyday_sentences_still_can(said):
     assert not RISKY.search(said)
 
 
-async def test_model_errors_never_carry_the_server_address(hass):
-    url = "http://user:secret@192.0.2.10:9/api/chat"  # TEST-NET address: never reachable
+URL = "http://user:secret@192.0.2.10:9/api/chat"  # what a misconfigured server address might hold
+
+
+class RefusingSession:
+    """Stands in for Home Assistant's web session; fails the way an unreachable server does, with the address."""
+
+    def request(self, method, url, **kwargs):
+        raise aiohttp.ClientConnectionError(f"Cannot connect to host {url}")
+
+
+async def test_model_errors_never_carry_the_server_address(hass, monkeypatch):
+    def refuse(*args, **kwargs):
+        raise urllib.error.URLError(f"cannot reach {URL}")
+
+    monkeypatch.setattr(urllib.request, "urlopen", refuse)
+    monkeypatch.setattr("custom_components.fortify_assist.ha_io.async_get_clientsession", lambda h: RefusingSession())
     for transport in (urllib_transport, make_transport(hass)):
         with pytest.raises(LLMError) as err:
-            await transport("POST", url, {}, {}, 0.5)
+            await transport("POST", URL, {}, {}, 0.5)
         assert "192.0.2.10" not in str(err.value) and "secret" not in str(err.value)
