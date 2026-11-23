@@ -1,0 +1,66 @@
+# Hand-written cases for the synthetic house: traps the generator cannot derive.
+- id: hard-001
+  utterance: is the front door locked
+  expect: {kind: answer, entities: [lock.front_door]}
+- id: hard-002
+  utterance: is the front door open
+  expect: {kind: answer, entities: [binary_sensor.front_door_contact]}
+  notes: same words as the lock alias, but "open" means the contact sensor
+- id: hard-003
+  utterance: turn on the printer
+  expect: {kind: action, actions: [{service: switch.turn_on, entity_id: switch.printer_3d}]}
+- id: hard-004
+  utterance: turn on the 3d printer
+  expect: {kind: action, actions: [{service: switch.turn_on, entity_id: switch.printer_3d}]}
+- id: hard-005
+  utterance: turn on workshop light a
+  expect: {kind: action, actions: [{service: light.turn_on, entity_id: light.workshop_a}]}
+  notes: near-identical names A vs B
+- id: hard-006
+  utterance: turn off workshop light b
+  expect: {kind: action, actions: [{service: light.turn_off, entity_id: light.workshop_b}]}
+- id: hard-007
+  utterance: turn on the bedroom lights
+  expect: {kind: action, actions: [{service: light.turn_on, entity_id: light.bedroom_lights}]}
+  notes: an entity is literally named this; it beats area-wide interpretation
+- id: hard-008
+  utterance: turn on the lamp
+  context_area: bedroom
+  expect: {kind: action, actions: [{service: light.turn_on, entity_id: light.bedroom_lamp}]}
+- id: hard-009
+  utterance: turn on the tv
+  expect: {kind: clarify, entities: [media_player.living_room_tv, media_player.bedroom_tv]}
+  notes: 'tv is a suffix of two names, no room context'
+- id: hard-010
+  utterance: turn on the tv
+  context_area: bedroom
+  expect: {kind: action, actions: [{service: media_player.turn_on, entity_id: media_player.bedroom_tv}]}
+- id: hard-011
+  utterance: set the lamp in the office to 30 percent
+  expect:
+    kind: action
+    actions: [{service: light.turn_on, entity_id: light.office_lamp, data: {brightness_pct: 30}}]
+- id: hard-012
+  utterance: close the garage door
+  expect: {kind: action, actions: [{service: cover.close_cover, entity_id: cover.garage_door}]}
+- id: hard-013
+  utterance: open the garage door
+  expect: {kind: confirm}
+- id: hard-014
+  utterance: unlock the front door
+  expect: {kind: confirm}
+- id: hard-015
+  utterance: turn on the porch light
+  expect: {kind: refuse}
+  notes: entity is unavailable
+- id: hard-016
+  utterance: turn on the closet light
+  expect: {kind: refuse}
+  notes: entity exists but is not exposed to the assistant
+- id: hard-017
+  utterance: what's the capital of France and turn on the deck lights
+  expect: {kind: action, actions: [{service: light.turn_on, entity_id: light.deck}]}
+  notes: chat plus a command; the command must still execute
+- id: hard-018
+  utterance: thanks that's all
+  expect: {kind: chat}

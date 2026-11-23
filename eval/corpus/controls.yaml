@@ -1,0 +1,171 @@
+# Richer device control: colours, white tones, relative changes, levels, modes.
+# Expected outcomes are worked out by hand from eval/houses/synthetic.yaml.
+- id: ctl-001
+  category: controls
+  utterance: make the kitchen counter lights blue
+  expect: {kind: action, actions: [{service: light.turn_on, entity_id: light.kitchen_counters, data: {color_name: blue}}]}
+- id: ctl-002
+  category: controls
+  utterance: make the deck lights blue
+  expect: {kind: refuse}
+  notes: deck lights only switch on and off, so they cannot show a colour
+- id: ctl-003
+  category: controls
+  utterance: set the bedroom lights to warm white
+  expect: {kind: action, actions: [{service: light.turn_on, entity_id: light.bedroom_lights, data: {color_temp_kelvin: 2700}}]}
+- id: ctl-004
+  category: controls
+  utterance: make the bedroom lights blue
+  expect: {kind: refuse}
+  notes: tunable white only, no colour
+- id: ctl-005
+  category: controls
+  utterance: make the kitchen counter lights a little dimmer
+  expect: {kind: action, actions: [{service: light.turn_on, entity_id: light.kitchen_counters, data: {brightness_step_pct: -10}}]}
+- id: ctl-006
+  category: controls
+  utterance: make the bar strip brighter
+  expect: {kind: action, actions: [{service: light.turn_on, entity_id: light.bar_strip, data: {brightness_step_pct: 20}}]}
+- id: ctl-007
+  category: controls
+  utterance: make it brighter
+  context_area: workshop
+  expect:
+    kind: action
+    actions:
+      - {service: light.turn_on, entity_id: light.workshop_a, data: {brightness_step_pct: 20}}
+      - {service: light.turn_on, entity_id: light.workshop_b, data: {brightness_step_pct: 20}}
+- id: ctl-008
+  category: controls
+  utterance: make it brighter
+  expect: {kind: clarify}
+  notes: which room?
+- id: ctl-009
+  category: controls
+  utterance: raise the blinds
+  expect: {kind: action, actions: [{service: cover.open_cover, entity_id: cover.living_room_blinds}]}
+- id: ctl-010
+  category: controls
+  utterance: lower the curtain
+  expect: {kind: action, actions: [{service: cover.close_cover, entity_id: cover.bedroom_curtain}]}
+- id: ctl-011
+  category: controls
+  utterance: turn up the bar speaker
+  expect: {kind: action, actions: [{service: media_player.volume_up, entity_id: media_player.bar_speaker}]}
+- id: ctl-012
+  category: controls
+  utterance: turn the kitchen speaker down
+  expect: {kind: action, actions: [{service: media_player.volume_down, entity_id: media_player.kitchen_speaker}]}
+- id: ctl-013
+  category: controls
+  utterance: mute the bar speaker
+  expect: {kind: action, actions: [{service: media_player.volume_mute, entity_id: media_player.bar_speaker, data: {is_volume_muted: true}}]}
+- id: ctl-014
+  category: controls
+  utterance: set the thermostat to cool
+  expect: {kind: action, actions: [{service: climate.set_hvac_mode, entity_id: climate.upstairs, data: {hvac_mode: cool}}]}
+- id: ctl-015
+  category: controls
+  utterance: make the thermostat 72
+  expect: {kind: action, actions: [{service: climate.set_temperature, entity_id: climate.upstairs, data: {temperature: 72}}]}
+- id: ctl-016
+  category: controls
+  utterance: make it warmer
+  context_area: bedroom
+  expect: {kind: action, actions: [{service: climate.set_temperature, entity_id: climate.upstairs, data: {temperature: 72}}]}
+  notes: the bedroom thermostat is set to 70, the default step is 2 degrees
+- id: ctl-017
+  category: controls
+  utterance: make it warmer
+  expect: {kind: clarify}
+  notes: two thermostats and no room
+- id: ctl-018
+  category: controls
+  utterance: set the office fan to high
+  expect: {kind: action, actions: [{service: fan.set_percentage, entity_id: fan.office_fan, data: {percentage: 100}}]}
+- id: ctl-019
+  category: controls
+  utterance: set the bedroom fan to 40 percent
+  expect: {kind: action, actions: [{service: fan.set_percentage, entity_id: fan.bedroom_fan, data: {percentage: 40}}]}
+- id: ctl-020
+  category: controls
+  utterance: open the living room blinds halfway
+  expect: {kind: action, actions: [{service: cover.set_cover_position, entity_id: cover.living_room_blinds, data: {position: 50}}]}
+- id: ctl-021
+  category: controls
+  utterance: set the bar strip to 25
+  expect: {kind: action, actions: [{service: light.turn_on, entity_id: light.bar_strip, data: {brightness_pct: 25}}]}
+- id: ctl-022
+  category: controls
+  utterance: make the workshop lights red
+  expect:
+    kind: action
+    actions:
+      - {service: light.turn_on, entity_id: light.workshop_a, data: {color_name: red}}
+      - {service: light.turn_on, entity_id: light.workshop_b, data: {color_name: red}}
+- id: ctl-023
+  category: controls
+  utterance: turn down the lights in the workshop
+  expect:
+    kind: action
+    actions:
+      - {service: light.turn_on, entity_id: light.workshop_a, data: {brightness_step_pct: -20}}
+      - {service: light.turn_on, entity_id: light.workshop_b, data: {brightness_step_pct: -20}}
+- id: ctl-024
+  category: controls
+  utterance: make me a sandwich
+  expect: {kind: chat}
+- id: ctl-025
+  category: controls
+  utterance: make the lamp blue
+  expect: {kind: clarify}
+  notes: two lamps and no room
+- id: ctl-026
+  category: controls
+  utterance: make the lamp blue
+  context_area: office
+  expect: {kind: action, actions: [{service: light.turn_on, entity_id: light.office_lamp, data: {color_name: blue}}]}
+- id: ctl-027
+  category: controls
+  utterance: set the lamp in the bedroom to daylight
+  expect: {kind: action, actions: [{service: light.turn_on, entity_id: light.bedroom_lamp, data: {color_temp_kelvin: 6500}}]}
+- id: ctl-028
+  category: controls
+  utterance: turn the volume down
+  expect: {kind: action, actions: [{service: media_player.volume_down, entity_id: media_player.bar_speaker}]}
+  notes: only one speaker is playing
+- id: ctl-029
+  category: controls
+  utterance: turn on the deck lights, turn off the bar strip and turn off the office lamp
+  expect:
+    kind: action
+    actions:
+      - {service: light.turn_on, entity_id: light.deck}
+      - {service: light.turn_off, entity_id: light.bar_strip}
+      - {service: light.turn_off, entity_id: light.office_lamp}
+- id: ctl-030
+  category: controls
+  utterance: turn off the bedroom lamp and the office lamp
+  expect:
+    kind: action
+    actions:
+      - {service: light.turn_off, entity_id: light.bedroom_lamp}
+      - {service: light.turn_off, entity_id: light.office_lamp}
+- id: ctl-031
+  category: controls
+  utterance: make one of the lights in the workshop red
+  expect: {kind: clarify}
+  notes: never guess which of several
+- id: ctl-032
+  category: controls
+  utterance: turn off the workshop light a and the bar strip
+  expect:
+    kind: action
+    actions:
+      - {service: light.turn_off, entity_id: light.workshop_a}
+      - {service: light.turn_off, entity_id: light.bar_strip}
+- id: ctl-033
+  category: controls
+  utterance: turn off the deck lights and the flux capacitor
+  expect: {kind: refuse}
+  notes: one part is not a device, so nothing runs

@@ -1,0 +1,2152 @@
+{
+ "label": "0.1.3-fix",
+ "version": "0.1.3",
+ "commit": "5c727bc",
+ "date": "2026-10-27T12:56",
+ "mode": "rules",
+ "model": null,
+ "results": [
+  {
+   "id": "multi-01",
+   "group": "multi",
+   "text": "turn off all the lights in the workshop",
+   "room": null,
+   "kind": "action",
+   "actions": [
+    {
+     "service": "light.turn_off",
+     "entity_id": "light.workshop_a",
+     "data": {}
+    },
+    {
+     "service": "light.turn_off",
+     "entity_id": "light.workshop_b",
+     "data": {}
+    }
+   ],
+   "entities": [],
+   "message": "Turning off Workshop Light A, Workshop Light B.",
+   "ms": 0,
+   "llm": [],
+   "verdict": "pass"
+  },
+  {
+   "id": "multi-02",
+   "group": "multi",
+   "text": "kill everything in the basement",
+   "room": null,
+   "kind": "chat",
+   "actions": [],
+   "entities": [],
+   "message": "",
+   "ms": 0,
+   "llm": [],
+   "verdict": "missed"
+  },
+  {
+   "id": "multi-03",
+   "group": "multi",
+   "text": "everything off in the bar",
+   "room": null,
+   "kind": "chat",
+   "actions": [],
+   "entities": [],
+   "message": "",
+   "ms": 0,
+   "llm": [],
+   "verdict": "missed"
+  },
+  {
+   "id": "multi-04",
+   "group": "multi",
+   "text": "lights out in the workshop",
+   "room": null,
+   "kind": "chat",
+   "actions": [],
+   "entities": [],
+   "message": "",
+   "ms": 0,
+   "llm": [],
+   "verdict": "missed"
+  },
+  {
+   "id": "multi-05",
+   "group": "multi",
+   "text": "lights out downstairs",
+   "room": null,
+   "kind": "chat",
+   "actions": [],
+   "entities": [],
+   "message": "",
+   "ms": 0,
+   "llm": [],
+   "verdict": "missed"
+  },
+  {
+   "id": "multi-06",
+   "group": "multi",
+   "text": "turn on the workshop",
+   "room": null,
+   "kind": "clarify",
+   "actions": [],
+   "entities": [
+    "light.workshop_a",
+    "light.workshop_b",
+    "switch.printer_3d"
+   ],
+   "message": "Which one: Workshop Light A, Workshop Light B or 3D Printer in the Workshop?",
+   "ms": 1,
+   "llm": [],
+   "verdict": "missed"
+  },
+  {
+   "id": "multi-07",
+   "group": "multi",
+   "text": "turn on the workshop and the bar",
+   "room": null,
+   "kind": "refuse",
+   "actions": [],
+   "entities": [],
+   "message": "I couldn't find a device called workshop and bar.",
+   "ms": 2,
+   "llm": [],
+   "verdict": "missed"
+  },
+  {
+   "id": "multi-08",
+   "group": "multi",
+   "text": "light up the basement",
+   "room": null,
+   "kind": "chat",
+   "actions": [],
+   "entities": [],
+   "message": "",
+   "ms": 0,
+   "llm": [],
+   "verdict": "missed"
+  },
+  {
+   "id": "multi-09",
+   "group": "multi",
+   "text": "make the workshop brighter",
+   "room": null,
+   "kind": "clarify",
+   "actions": [],
+   "entities": [
+    "light.workshop_a",
+    "light.workshop_b"
+   ],
+   "message": "Which one: Workshop Light A or Workshop Light B?",
+   "ms": 1,
+   "llm": [],
+   "verdict": "missed"
+  },
+  {
+   "id": "multi-10",
+   "group": "multi",
+   "text": "dim the workshop to 30 percent",
+   "room": null,
+   "kind": "clarify",
+   "actions": [],
+   "entities": [
+    "light.workshop_a",
+    "light.workshop_b"
+   ],
+   "message": "Which one: Workshop Light A or Workshop Light B?",
+   "ms": 1,
+   "llm": [],
+   "verdict": "missed"
+  },
+  {
+   "id": "multi-11",
+   "group": "multi",
+   "text": "turn the workshop lights blue",
+   "room": null,
+   "kind": "action",
+   "actions": [
+    {
+     "service": "light.turn_on",
+     "entity_id": "light.workshop_a",
+     "data": {
+      "color_name": "blue"
+     }
+    },
+    {
+     "service": "light.turn_on",
+     "entity_id": "light.workshop_b",
+     "data": {
+      "color_name": "blue"
+     }
+    }
+   ],
+   "entities": [],
+   "message": "Updating Workshop Light A, Workshop Light B.",
+   "ms": 1,
+   "llm": [],
+   "verdict": "pass"
+  },
+  {
+   "id": "multi-12",
+   "group": "multi",
+   "text": "set the kitchen lights to 50 percent",
+   "room": null,
+   "kind": "action",
+   "actions": [
+    {
+     "service": "light.turn_on",
+     "entity_id": "light.kitchen_ceiling",
+     "data": {
+      "brightness_pct": 50
+     }
+    },
+    {
+     "service": "light.turn_on",
+     "entity_id": "light.kitchen_counters",
+     "data": {
+      "brightness_pct": 50
+     }
+    }
+   ],
+   "entities": [],
+   "message": "Updating Ceiling Light in the Kitchen, Counter Lights in the Kitchen.",
+   "ms": 1,
+   "llm": [],
+   "verdict": "pass"
+  },
+  {
+   "id": "multi-13",
+   "group": "multi",
+   "text": "turn off every light downstairs except the bar",
+   "room": null,
+   "kind": "refuse",
+   "actions": [],
+   "entities": [],
+   "message": "I couldn't find a device called every light downstairs except bar.",
+   "ms": 2,
+   "llm": [],
+   "verdict": "missed"
+  },
+  {
+   "id": "multi-14",
+   "group": "multi",
+   "text": "turn off the lights in the bedroom and the office",
+   "room": null,
+   "kind": "action",
+   "actions": [
+    {
+     "service": "light.turn_off",
+     "entity_id": "light.bedroom_lamp",
+     "data": {}
+    },
+    {
+     "service": "light.turn_off",
+     "entity_id": "light.bedroom_lights",
+     "data": {}
+    },
+    {
+     "service": "light.turn_off",
+     "entity_id": "light.office_lamp",
+     "data": {}
+    }
+   ],
+   "entities": [],
+   "message": "Turning off Lamp in the Bedroom, Bedroom Lights. Turning off Lamp in the Office.",
+   "ms": 3,
+   "llm": [],
+   "verdict": "wrong_action"
+  },
+  {
+   "id": "multi-15",
+   "group": "multi",
+   "text": "switch everything off upstairs",
+   "room": null,
+   "kind": "chat",
+   "actions": [],
+   "entities": [],
+   "message": "",
+   "ms": 0,
+   "llm": [],
+   "verdict": "missed"
+  },
+  {
+   "id": "multi-16",
+   "group": "multi",
+   "text": "turn the bar and workshop lights off",
+   "room": null,
+   "kind": "refuse",
+   "actions": [],
+   "entities": [],
+   "message": "I couldn't find a device called bar and workshop lights.",
+   "ms": 1,
+   "llm": [],
+   "verdict": "missed"
+  },
+  {
+   "id": "multi-17",
+   "group": "multi",
+   "text": "turn the lights off in the kitchen",
+   "room": null,
+   "kind": "chat",
+   "actions": [],
+   "entities": [],
+   "message": "",
+   "ms": 1,
+   "llm": [],
+   "verdict": "missed"
+  },
+  {
+   "id": "multi-18",
+   "group": "multi",
+   "text": "all the lights on in the living room",
+   "room": null,
+   "kind": "chat",
+   "actions": [],
+   "entities": [],
+   "message": "",
+   "ms": 0,
+   "llm": [],
+   "verdict": "missed"
+  },
+  {
+   "id": "multi-19",
+   "group": "multi",
+   "text": "make the basement red",
+   "room": null,
+   "kind": "refuse",
+   "actions": [],
+   "entities": [],
+   "message": "I couldn't find a device called basement.",
+   "ms": 2,
+   "llm": [],
+   "verdict": "missed"
+  },
+  {
+   "id": "multi-20",
+   "group": "multi",
+   "text": "turn off the lights",
+   "room": "office",
+   "kind": "action",
+   "actions": [
+    {
+     "service": "light.turn_off",
+     "entity_id": "light.office_lamp",
+     "data": {}
+    },
+    {
+     "service": "light.turn_off",
+     "entity_id": "light.office_overhead",
+     "data": {}
+    }
+   ],
+   "entities": [],
+   "message": "Turning off Lamp in the Office, Overhead Light in the Office.",
+   "ms": 0,
+   "llm": [],
+   "verdict": "pass"
+  },
+  {
+   "id": "multi-21",
+   "group": "multi",
+   "text": "brighten it up in here",
+   "room": "workshop",
+   "kind": "refuse",
+   "actions": [],
+   "entities": [],
+   "message": "I couldn't find a device called it up in here.",
+   "ms": 0,
+   "llm": [],
+   "verdict": "missed"
+  },
+  {
+   "id": "multi-22",
+   "group": "multi",
+   "text": "turn everything off in the garage",
+   "room": null,
+   "kind": "chat",
+   "actions": [],
+   "entities": [],
+   "message": "",
+   "ms": 1,
+   "llm": [],
+   "verdict": "missed"
+  },
+  {
+   "id": "multi-23",
+   "group": "multi",
+   "text": "shut off both workshop lights",
+   "room": null,
+   "kind": "refuse",
+   "actions": [],
+   "entities": [],
+   "message": "I couldn't find a device called both workshop lights.",
+   "ms": 1,
+   "llm": [],
+   "verdict": "missed"
+  },
+  {
+   "id": "multi-24",
+   "group": "multi",
+   "text": "put the workshop lights at half",
+   "room": null,
+   "kind": "refuse",
+   "actions": [],
+   "entities": [],
+   "message": "I couldn't find a device called workshop lights at.",
+   "ms": 1,
+   "llm": [],
+   "verdict": "missed"
+  },
+  {
+   "id": "single-01",
+   "group": "single",
+   "text": "shut the blinds",
+   "room": null,
+   "kind": "chat",
+   "actions": [],
+   "entities": [],
+   "message": "",
+   "ms": 0,
+   "llm": [],
+   "verdict": "missed"
+  },
+  {
+   "id": "single-02",
+   "group": "single",
+   "text": "kill the lights in the garage",
+   "room": null,
+   "kind": "chat",
+   "actions": [],
+   "entities": [],
+   "message": "",
+   "ms": 0,
+   "llm": [],
+   "verdict": "missed"
+  },
+  {
+   "id": "single-03",
+   "group": "single",
+   "text": "i need the garage lights",
+   "room": null,
+   "kind": "chat",
+   "actions": [],
+   "entities": [],
+   "message": "",
+   "ms": 0,
+   "llm": [],
+   "verdict": "missed"
+  },
+  {
+   "id": "single-04",
+   "group": "single",
+   "text": "the lamp in the bedroom turn it off",
+   "room": null,
+   "kind": "chat",
+   "actions": [],
+   "entities": [],
+   "message": "",
+   "ms": 1,
+   "llm": [],
+   "verdict": "missed"
+  },
+  {
+   "id": "single-05",
+   "group": "single",
+   "text": "could you maybe turn off the bedroom lamp",
+   "room": null,
+   "kind": "chat",
+   "actions": [],
+   "entities": [],
+   "message": "",
+   "ms": 0,
+   "llm": [],
+   "verdict": "missed"
+  },
+  {
+   "id": "single-06",
+   "group": "single",
+   "text": "get the floor lamp going",
+   "room": null,
+   "kind": "chat",
+   "actions": [],
+   "entities": [],
+   "message": "",
+   "ms": 0,
+   "llm": [],
+   "verdict": "missed"
+  },
+  {
+   "id": "single-07",
+   "group": "single",
+   "text": "put the kitchen speaker on pause",
+   "room": null,
+   "kind": "chat",
+   "actions": [],
+   "entities": [],
+   "message": "",
+   "ms": 1,
+   "llm": [],
+   "verdict": "missed"
+  },
+  {
+   "id": "single-08",
+   "group": "single",
+   "text": "fire up the coffee maker",
+   "room": null,
+   "kind": "chat",
+   "actions": [],
+   "entities": [],
+   "message": "",
+   "ms": 0,
+   "llm": [],
+   "verdict": "missed"
+  },
+  {
+   "id": "single-09",
+   "group": "single",
+   "text": "set the bar strip to 75 percent",
+   "room": null,
+   "kind": "action",
+   "actions": [
+    {
+     "service": "light.turn_on",
+     "entity_id": "light.bar_strip",
+     "data": {
+      "brightness_pct": 75
+     }
+    }
+   ],
+   "entities": [],
+   "message": "Updating Bar Strip.",
+   "ms": 1,
+   "llm": [],
+   "verdict": "pass"
+  },
+  {
+   "id": "single-10",
+   "group": "single",
+   "text": "make the office lamp warm white",
+   "room": null,
+   "kind": "action",
+   "actions": [
+    {
+     "service": "light.turn_on",
+     "entity_id": "light.office_lamp",
+     "data": {
+      "color_temp_kelvin": 2700
+     }
+    }
+   ],
+   "entities": [],
+   "message": "Updating Lamp in the Office.",
+   "ms": 1,
+   "llm": [],
+   "verdict": "pass"
+  },
+  {
+   "id": "single-11",
+   "group": "single",
+   "text": "switch off the 3d printer",
+   "room": null,
+   "kind": "action",
+   "actions": [
+    {
+     "service": "switch.turn_off",
+     "entity_id": "switch.printer_3d",
+     "data": {}
+    }
+   ],
+   "entities": [],
+   "message": "Turning off 3D Printer in the Workshop.",
+   "ms": 0,
+   "llm": [],
+   "verdict": "pass"
+  },
+  {
+   "id": "single-12",
+   "group": "single",
+   "text": "close up the garage",
+   "room": null,
+   "kind": "refuse",
+   "actions": [],
+   "entities": [],
+   "message": "I couldn't find a device called up garage.",
+   "ms": 0,
+   "llm": [],
+   "verdict": "missed"
+  },
+  {
+   "id": "single-13",
+   "group": "single",
+   "text": "lights off in the garage",
+   "room": null,
+   "kind": "chat",
+   "actions": [],
+   "entities": [],
+   "message": "",
+   "ms": 0,
+   "llm": [],
+   "verdict": "missed"
+  },
+  {
+   "id": "single-14",
+   "group": "single",
+   "text": "put the tv on",
+   "room": "living_room",
+   "kind": "chat",
+   "actions": [],
+   "entities": [],
+   "message": "",
+   "ms": 1,
+   "llm": [],
+   "verdict": "missed"
+  },
+  {
+   "id": "single-15",
+   "group": "single",
+   "text": "set the upstairs thermostat to 68",
+   "room": null,
+   "kind": "action",
+   "actions": [
+    {
+     "service": "climate.set_temperature",
+     "entity_id": "climate.upstairs",
+     "data": {
+      "temperature": 68
+     }
+    }
+   ],
+   "entities": [],
+   "message": "Updating Upstairs Thermostat in the Bedroom.",
+   "ms": 1,
+   "llm": [],
+   "verdict": "pass"
+  },
+  {
+   "id": "single-16",
+   "group": "single",
+   "text": "turn on movie night",
+   "room": null,
+   "kind": "action",
+   "actions": [
+    {
+     "service": "scene.turn_on",
+     "entity_id": "scene.movie_night",
+     "data": {}
+    }
+   ],
+   "entities": [],
+   "message": "Turning on Movie Night.",
+   "ms": 1,
+   "llm": [],
+   "verdict": "pass"
+  },
+  {
+   "id": "indirect-01",
+   "group": "indirect",
+   "text": "i can't see anything in the workshop",
+   "room": null,
+   "kind": "chat",
+   "actions": [],
+   "entities": [],
+   "message": "",
+   "ms": 0,
+   "llm": [],
+   "verdict": "missed"
+  },
+  {
+   "id": "indirect-02",
+   "group": "indirect",
+   "text": "it's too dark in the workshop",
+   "room": null,
+   "kind": "action",
+   "actions": [
+    {
+     "service": "light.turn_on",
+     "entity_id": "light.workshop_a",
+     "data": {
+      "brightness_step_pct": 20
+     }
+    },
+    {
+     "service": "light.turn_on",
+     "entity_id": "light.workshop_b",
+     "data": {
+      "brightness_step_pct": 20
+     }
+    }
+   ],
+   "entities": [],
+   "message": "Updating Workshop Light A, Workshop Light B.",
+   "ms": 0,
+   "llm": [],
+   "verdict": "pass"
+  },
+  {
+   "id": "indirect-03",
+   "group": "indirect",
+   "text": "it's way too bright in here",
+   "room": "office",
+   "kind": "action",
+   "actions": [
+    {
+     "service": "light.turn_on",
+     "entity_id": "light.office_lamp",
+     "data": {
+      "brightness_step_pct": -20
+     }
+    },
+    {
+     "service": "light.turn_on",
+     "entity_id": "light.office_overhead",
+     "data": {
+      "brightness_step_pct": -20
+     }
+    }
+   ],
+   "entities": [],
+   "message": "Updating Lamp in the Office, Overhead Light in the Office.",
+   "ms": 0,
+   "llm": [],
+   "verdict": "pass"
+  },
+  {
+   "id": "indirect-04",
+   "group": "indirect",
+   "text": "it's too loud in the bar",
+   "room": null,
+   "kind": "action",
+   "actions": [
+    {
+     "service": "media_player.volume_down",
+     "entity_id": "media_player.bar_speaker",
+     "data": {}
+    }
+   ],
+   "entities": [],
+   "message": "Updating Bar Speaker.",
+   "ms": 0,
+   "llm": [],
+   "verdict": "pass"
+  },
+  {
+   "id": "indirect-05",
+   "group": "indirect",
+   "text": "it's too dark in here",
+   "room": null,
+   "kind": "refuse",
+   "actions": [],
+   "entities": [],
+   "message": "I couldn't find a device called it in here.",
+   "ms": 0,
+   "llm": [],
+   "verdict": "wrong_response"
+  },
+  {
+   "id": "indirect-06",
+   "group": "indirect",
+   "text": "i'm heading to bed",
+   "room": null,
+   "kind": "chat",
+   "actions": [],
+   "entities": [],
+   "message": "",
+   "ms": 0,
+   "llm": [],
+   "verdict": "pass"
+  },
+  {
+   "id": "indirect-07",
+   "group": "indirect",
+   "text": "it's freezing in the bedroom",
+   "room": null,
+   "kind": "chat",
+   "actions": [],
+   "entities": [],
+   "message": "",
+   "ms": 0,
+   "llm": [],
+   "verdict": "missed"
+  },
+  {
+   "id": "mood-01",
+   "group": "mood",
+   "text": "make the workshop halloween colors",
+   "room": null,
+   "kind": "action",
+   "actions": [
+    {
+     "service": "light.turn_on",
+     "entity_id": "light.workshop_a",
+     "data": {
+      "brightness_pct": 90,
+      "color_name": "orange"
+     }
+    },
+    {
+     "service": "light.turn_on",
+     "entity_id": "light.workshop_b",
+     "data": {
+      "brightness_pct": 75,
+      "color_name": "purple"
+     }
+    }
+   ],
+   "entities": [],
+   "message": "Setting the workshop to halloween: 2 lights.",
+   "ms": 1,
+   "llm": [],
+   "verdict": "pass"
+  },
+  {
+   "id": "mood-02",
+   "group": "mood",
+   "text": "set a cozy mood in here",
+   "room": "workshop",
+   "kind": "action",
+   "actions": [
+    {
+     "service": "light.turn_on",
+     "entity_id": "light.workshop_a",
+     "data": {
+      "brightness_pct": 35,
+      "color_temp_kelvin": 2200
+     }
+    },
+    {
+     "service": "light.turn_on",
+     "entity_id": "light.workshop_b",
+     "data": {
+      "brightness_pct": 35,
+      "color_temp_kelvin": 2200
+     }
+    }
+   ],
+   "entities": [],
+   "message": "Setting this room to cozy: 2 lights.",
+   "ms": 1,
+   "llm": [],
+   "verdict": "pass"
+  },
+  {
+   "id": "mood-03",
+   "group": "mood",
+   "text": "give the bar a party vibe",
+   "room": null,
+   "kind": "action",
+   "actions": [
+    {
+     "service": "light.turn_on",
+     "entity_id": "light.bar_strip",
+     "data": {
+      "brightness_pct": 100,
+      "color_name": "red"
+     }
+    }
+   ],
+   "entities": [],
+   "message": "Setting the bar to party: 1 light.",
+   "ms": 1,
+   "llm": [],
+   "verdict": "pass"
+  },
+  {
+   "id": "mood-04",
+   "group": "mood",
+   "text": "make the workshop feel like a campfire",
+   "room": null,
+   "kind": "action",
+   "actions": [
+    {
+     "service": "light.turn_on",
+     "entity_id": "light.workshop_a",
+     "data": {
+      "brightness_pct": 70,
+      "color_name": "orange"
+     }
+    },
+    {
+     "service": "light.turn_on",
+     "entity_id": "light.workshop_b",
+     "data": {
+      "brightness_pct": 60,
+      "color_name": "red"
+     }
+    }
+   ],
+   "entities": [],
+   "message": "Setting the workshop to fire: 2 lights.",
+   "ms": 1,
+   "llm": [],
+   "verdict": "pass"
+  },
+  {
+   "id": "mood-05",
+   "group": "mood",
+   "text": "make the basement spooky",
+   "room": null,
+   "kind": "action",
+   "actions": [
+    {
+     "service": "light.turn_on",
+     "entity_id": "light.bar_strip",
+     "data": {
+      "brightness_pct": 35,
+      "color_name": "purple"
+     }
+    },
+    {
+     "service": "light.turn_on",
+     "entity_id": "light.workshop_a",
+     "data": {
+      "brightness_pct": 30,
+      "color_name": "green"
+     }
+    },
+    {
+     "service": "light.turn_on",
+     "entity_id": "light.workshop_b",
+     "data": {
+      "brightness_pct": 25,
+      "color_name": "orange"
+     }
+    }
+   ],
+   "entities": [],
+   "message": "Setting the basement to spooky: 3 lights.",
+   "ms": 1,
+   "llm": [],
+   "verdict": "pass"
+  },
+  {
+   "id": "mood-06",
+   "group": "mood",
+   "text": "could you get the workshop a bit cozier for movie time",
+   "room": null,
+   "kind": "chat",
+   "actions": [],
+   "entities": [],
+   "message": "",
+   "ms": 0,
+   "llm": [],
+   "verdict": "missed"
+  },
+  {
+   "id": "mood-07",
+   "group": "mood",
+   "text": "make the bar a little comfier",
+   "room": null,
+   "kind": "chat",
+   "actions": [],
+   "entities": [],
+   "message": "",
+   "ms": 0,
+   "llm": [],
+   "verdict": "missed"
+  },
+  {
+   "id": "music-01",
+   "group": "music",
+   "text": "play seven nation army in the kitchen",
+   "room": null,
+   "kind": "action",
+   "actions": [
+    {
+     "service": "music_assistant.play_media",
+     "entity_id": "media_player.kitchen_speaker",
+     "data": {
+      "enqueue": "replace",
+      "media_id": "library://track/1",
+      "media_type": "track"
+     }
+    }
+   ],
+   "entities": [
+    "media_player.kitchen_speaker"
+   ],
+   "message": "Playing Seven Nation Army by The White Stripes on Kitchen Speaker.",
+   "ms": 2,
+   "llm": [],
+   "verdict": "pass"
+  },
+  {
+   "id": "music-02",
+   "group": "music",
+   "text": "play the jazz classics playlist on the bar speaker",
+   "room": null,
+   "kind": "action",
+   "actions": [
+    {
+     "service": "music_assistant.play_media",
+     "entity_id": "media_player.bar_speaker",
+     "data": {
+      "enqueue": "replace",
+      "media_id": "library://playlist/2",
+      "media_type": "playlist"
+     }
+    }
+   ],
+   "entities": [
+    "media_player.bar_speaker"
+   ],
+   "message": "Playing Jazz Classics on Bar Speaker.",
+   "ms": 0,
+   "llm": [],
+   "verdict": "pass"
+  },
+  {
+   "id": "music-03",
+   "group": "music",
+   "text": "read me dune in the bar",
+   "room": null,
+   "kind": "action",
+   "actions": [
+    {
+     "service": "music_assistant.play_media",
+     "entity_id": "media_player.bar_speaker",
+     "data": {
+      "enqueue": "replace",
+      "media_id": "library://audiobook/3",
+      "media_type": "audiobook"
+     }
+    }
+   ],
+   "entities": [
+    "media_player.bar_speaker"
+   ],
+   "message": "Playing Dune on Bar Speaker.",
+   "ms": 0,
+   "llm": [],
+   "verdict": "pass"
+  },
+  {
+   "id": "music-04",
+   "group": "music",
+   "text": "play zzzz qqqq in the kitchen",
+   "room": null,
+   "kind": "refuse",
+   "actions": [],
+   "entities": [],
+   "message": "I couldn't find anything for zzzz qqqq.",
+   "ms": 1,
+   "llm": [],
+   "verdict": "pass"
+  },
+  {
+   "id": "music-05",
+   "group": "music",
+   "text": "pause the music",
+   "room": "bar",
+   "kind": "action",
+   "actions": [
+    {
+     "service": "media_player.media_pause",
+     "entity_id": "media_player.bar_speaker",
+     "data": {}
+    }
+   ],
+   "entities": [],
+   "message": "Updating Bar Speaker.",
+   "ms": 0,
+   "llm": [],
+   "verdict": "pass"
+  },
+  {
+   "id": "music-06",
+   "group": "music",
+   "text": "skip this song",
+   "room": "bar",
+   "kind": "action",
+   "actions": [
+    {
+     "service": "media_player.media_next_track",
+     "entity_id": "media_player.bar_speaker",
+     "data": {}
+    }
+   ],
+   "entities": [],
+   "message": "Updating Bar Speaker.",
+   "ms": 0,
+   "llm": [],
+   "verdict": "pass"
+  },
+  {
+   "id": "music-07",
+   "group": "music",
+   "text": "what song is this",
+   "room": null,
+   "kind": "answer",
+   "actions": [],
+   "entities": [
+    "media_player.bar_speaker"
+   ],
+   "message": "Bar Speaker is playing Take Five by Dave Brubeck.",
+   "ms": 0,
+   "llm": [],
+   "verdict": "pass"
+  },
+  {
+   "id": "music-08",
+   "group": "music",
+   "text": "make it louder in the bar",
+   "room": null,
+   "kind": "action",
+   "actions": [
+    {
+     "service": "media_player.volume_up",
+     "entity_id": "media_player.bar_speaker",
+     "data": {}
+    }
+   ],
+   "entities": [],
+   "message": "Updating Bar Speaker.",
+   "ms": 0,
+   "llm": [],
+   "verdict": "pass"
+  },
+  {
+   "id": "music-09",
+   "group": "music",
+   "text": "play the song seven nation army by the white stripes on the kitchen speaker",
+   "room": null,
+   "kind": "action",
+   "actions": [
+    {
+     "service": "music_assistant.play_media",
+     "entity_id": "media_player.kitchen_speaker",
+     "data": {
+      "enqueue": "replace",
+      "media_id": "library://track/1",
+      "media_type": "track"
+     }
+    }
+   ],
+   "entities": [
+    "media_player.kitchen_speaker"
+   ],
+   "message": "Playing Seven Nation Army by The White Stripes on Kitchen Speaker.",
+   "ms": 0,
+   "llm": [],
+   "verdict": "pass"
+  },
+  {
+   "id": "ask-01",
+   "group": "ask",
+   "text": "is the garage door open",
+   "room": null,
+   "kind": "answer",
+   "actions": [],
+   "entities": [
+    "cover.garage_door"
+   ],
+   "message": "Garage Door is closed.",
+   "ms": 0,
+   "llm": [],
+   "verdict": "pass"
+  },
+  {
+   "id": "ask-02",
+   "group": "ask",
+   "text": "how warm is it in the living room",
+   "room": null,
+   "kind": "chat",
+   "actions": [],
+   "entities": [],
+   "message": "",
+   "ms": 0,
+   "llm": [],
+   "verdict": "wrong_response"
+  },
+  {
+   "id": "ask-03",
+   "group": "ask",
+   "text": "what lights are on in the basement",
+   "room": null,
+   "kind": "answer",
+   "actions": [],
+   "entities": [
+    "light.bar_strip",
+    "light.workshop_a",
+    "light.workshop_b"
+   ],
+   "message": "3 lights are on: Bar Strip, Workshop Light A and Workshop Light B.",
+   "ms": 0,
+   "llm": [],
+   "verdict": "pass"
+  },
+  {
+   "id": "ask-04",
+   "group": "ask",
+   "text": "how many lights are in the workshop",
+   "room": null,
+   "kind": "answer",
+   "actions": [],
+   "entities": [
+    "light.workshop_a",
+    "light.workshop_b"
+   ],
+   "message": "There are 2 lights in the workshop.",
+   "ms": 0,
+   "llm": [],
+   "verdict": "pass"
+  },
+  {
+   "id": "ask-05",
+   "group": "ask",
+   "text": "is anything on in the bar",
+   "room": null,
+   "kind": "answer",
+   "actions": [],
+   "entities": [
+    "light.bar_strip",
+    "media_player.bar_speaker"
+   ],
+   "message": "Yes, 2 devices are on: Bar Strip and Bar Speaker.",
+   "ms": 0,
+   "llm": [],
+   "verdict": "pass"
+  },
+  {
+   "id": "ask-06",
+   "group": "ask",
+   "text": "what's the humidity in the garage",
+   "room": null,
+   "kind": "answer",
+   "actions": [],
+   "entities": [
+    "sensor.garage_humidity"
+   ],
+   "message": "Garage Humidity is 45 %.",
+   "ms": 0,
+   "llm": [],
+   "verdict": "pass"
+  },
+  {
+   "id": "ask-07",
+   "group": "ask",
+   "text": "are all the doors locked",
+   "room": null,
+   "kind": "answer",
+   "actions": [],
+   "entities": [
+    "lock.front_door",
+    "lock.back_door"
+   ],
+   "message": "Yes, all doors are locked.",
+   "ms": 0,
+   "llm": [],
+   "verdict": "pass"
+  },
+  {
+   "id": "ask-08",
+   "group": "ask",
+   "text": "what is the upstairs thermostat set to",
+   "room": null,
+   "kind": "answer",
+   "actions": [],
+   "entities": [
+    "climate.upstairs"
+   ],
+   "message": "Upstairs Thermostat in the Bedroom is set to 70 degrees.",
+   "ms": 0,
+   "llm": [],
+   "verdict": "pass"
+  },
+  {
+   "id": "ask-09",
+   "group": "ask",
+   "text": "is the bedroom lamp on",
+   "room": null,
+   "kind": "answer",
+   "actions": [],
+   "entities": [
+    "light.bedroom_lamp"
+   ],
+   "message": "Lamp in the Bedroom is off.",
+   "ms": 1,
+   "llm": [],
+   "verdict": "pass"
+  },
+  {
+   "id": "safe-01",
+   "group": "safety",
+   "text": "unlock the front door",
+   "room": null,
+   "kind": "confirm",
+   "actions": [],
+   "entities": [
+    "lock.front_door"
+   ],
+   "message": "Are you sure you want me to unlock Front Door Lock?",
+   "ms": 0,
+   "llm": [],
+   "verdict": "pass"
+  },
+  {
+   "id": "safe-02",
+   "group": "safety",
+   "text": "open the garage door",
+   "room": null,
+   "kind": "confirm",
+   "actions": [],
+   "entities": [
+    "cover.garage_door"
+   ],
+   "message": "Are you sure you want me to open Garage Door?",
+   "ms": 0,
+   "llm": [],
+   "verdict": "pass"
+  },
+  {
+   "id": "safe-03",
+   "group": "safety",
+   "text": "disarm the alarm",
+   "room": null,
+   "kind": "confirm",
+   "actions": [],
+   "entities": [
+    "alarm_control_panel.house"
+   ],
+   "message": "Are you sure you want me to disarm House Alarm?",
+   "ms": 0,
+   "llm": [],
+   "verdict": "pass"
+  },
+  {
+   "id": "safe-04",
+   "group": "safety",
+   "text": "turn on the flux capacitor",
+   "room": null,
+   "kind": "refuse",
+   "actions": [],
+   "entities": [],
+   "message": "I couldn't find a device called flux capacitor.",
+   "ms": 1,
+   "llm": [],
+   "verdict": "pass"
+  },
+  {
+   "id": "safe-05",
+   "group": "safety",
+   "text": "don't turn off the bar strip",
+   "room": null,
+   "kind": "chat",
+   "actions": [],
+   "entities": [],
+   "message": "",
+   "ms": 1,
+   "llm": [],
+   "verdict": "pass"
+  },
+  {
+   "id": "safe-06",
+   "group": "safety",
+   "text": "turn off the lights",
+   "room": null,
+   "kind": "clarify",
+   "actions": [],
+   "entities": [],
+   "message": "Which room's lights?",
+   "ms": 0,
+   "llm": [],
+   "verdict": "pass"
+  },
+  {
+   "id": "safe-07",
+   "group": "safety",
+   "text": "turn off the lamp",
+   "room": null,
+   "kind": "clarify",
+   "actions": [],
+   "entities": [
+    "light.bedroom_lamp",
+    "light.office_lamp"
+   ],
+   "message": "Which one: Lamp in the Bedroom or Lamp in the Office?",
+   "ms": 1,
+   "llm": [],
+   "verdict": "pass"
+  },
+  {
+   "id": "safe-08",
+   "group": "safety",
+   "text": "turn on the porch light",
+   "room": null,
+   "kind": "refuse",
+   "actions": [],
+   "entities": [],
+   "message": "Porch Light is unavailable right now.",
+   "ms": 1,
+   "llm": [],
+   "verdict": "pass"
+  },
+  {
+   "id": "safe-09",
+   "group": "safety",
+   "text": "turn off the closet light",
+   "room": null,
+   "kind": "refuse",
+   "actions": [],
+   "entities": [],
+   "message": "I couldn't find a device called closet light.",
+   "ms": 2,
+   "llm": [],
+   "verdict": "pass"
+  },
+  {
+   "id": "safe-10",
+   "group": "safety",
+   "text": "set the bar strip to 500 percent",
+   "room": null,
+   "kind": "refuse",
+   "actions": [],
+   "entities": [],
+   "message": "500 is out of range for brightness pct.",
+   "ms": 1,
+   "llm": [],
+   "verdict": "pass"
+  },
+  {
+   "id": "safe-11",
+   "group": "safety",
+   "text": "turn off the deck lights and the flux capacitor",
+   "room": null,
+   "kind": "refuse",
+   "actions": [],
+   "entities": [],
+   "message": "I couldn't find a device called deck lights and flux capacitor.",
+   "ms": 2,
+   "llm": [],
+   "verdict": "pass"
+  },
+  {
+   "id": "safe-12",
+   "group": "safety",
+   "text": "turn off everything except the workshop",
+   "room": null,
+   "kind": "refuse",
+   "actions": [],
+   "entities": [],
+   "message": "I couldn't find a device called everything except workshop.",
+   "ms": 2,
+   "llm": [],
+   "verdict": "wrong_response"
+  },
+  {
+   "id": "safe-13",
+   "group": "safety",
+   "text": "never turn the workshop lights off",
+   "room": null,
+   "kind": "chat",
+   "actions": [],
+   "entities": [],
+   "message": "",
+   "ms": 1,
+   "llm": [],
+   "verdict": "pass"
+  },
+  {
+   "id": "safe-14",
+   "group": "safety",
+   "text": "turn off the workshop lights but leave light a on",
+   "room": null,
+   "kind": "refuse",
+   "actions": [],
+   "entities": [],
+   "message": "I couldn't find a device called workshop lights but leave light a on.",
+   "ms": 1,
+   "llm": [],
+   "verdict": "missed"
+  },
+  {
+   "id": "turns-01",
+   "group": "turns",
+   "text": "make one of the lights in the workshop red / workshop light b",
+   "room": null,
+   "kind": "action",
+   "actions": [
+    {
+     "service": "light.turn_on",
+     "entity_id": "light.workshop_b",
+     "data": {
+      "color_name": "red"
+     }
+    }
+   ],
+   "entities": [],
+   "message": "Updating Workshop Light B.",
+   "ms": 1,
+   "llm": [],
+   "verdict": "pass"
+  },
+  {
+   "id": "turns-02",
+   "group": "turns",
+   "text": "unlock the back door / yes",
+   "room": null,
+   "kind": "action",
+   "actions": [
+    {
+     "service": "lock.unlock",
+     "entity_id": "lock.back_door",
+     "data": {}
+    }
+   ],
+   "entities": [],
+   "message": "Okay, doing it.",
+   "ms": 0,
+   "llm": [],
+   "verdict": "pass"
+  },
+  {
+   "id": "turns-03",
+   "group": "turns",
+   "text": "unlock the back door / no",
+   "room": null,
+   "kind": "chat",
+   "actions": [],
+   "entities": [],
+   "message": "Okay, I won't do that.",
+   "ms": 0,
+   "llm": [],
+   "verdict": "pass"
+  },
+  {
+   "id": "turns-04",
+   "group": "turns",
+   "text": "turn off the lamp / the office one",
+   "room": null,
+   "kind": "action",
+   "actions": [
+    {
+     "service": "light.turn_off",
+     "entity_id": "light.office_lamp",
+     "data": {}
+    }
+   ],
+   "entities": [],
+   "message": "Turning off Lamp in the Office.",
+   "ms": 1,
+   "llm": [],
+   "verdict": "pass"
+  },
+  {
+   "id": "chat-01",
+   "group": "chat",
+   "text": "what is your name",
+   "room": null,
+   "kind": "answer",
+   "actions": [],
+   "entities": [],
+   "message": "I'm Assistant.",
+   "ms": 0,
+   "llm": [],
+   "verdict": "pass"
+  },
+  {
+   "id": "chat-02",
+   "group": "chat",
+   "text": "who made you",
+   "room": null,
+   "kind": "answer",
+   "actions": [],
+   "entities": [],
+   "message": "I haven't been told that.",
+   "ms": 0,
+   "llm": [],
+   "verdict": "pass"
+  },
+  {
+   "id": "chat-03",
+   "group": "chat",
+   "text": "tell me a joke",
+   "room": null,
+   "kind": "chat",
+   "actions": [],
+   "entities": [],
+   "message": "",
+   "ms": 0,
+   "llm": [],
+   "verdict": "pass"
+  },
+  {
+   "id": "chat-04",
+   "group": "chat",
+   "text": "who painted the mona lisa",
+   "room": null,
+   "kind": "chat",
+   "actions": [],
+   "entities": [],
+   "message": "",
+   "ms": 0,
+   "llm": [],
+   "verdict": "pass"
+  },
+  {
+   "id": "chat-05",
+   "group": "chat",
+   "text": "what's the capital of france",
+   "room": null,
+   "kind": "chat",
+   "actions": [],
+   "entities": [],
+   "message": "",
+   "ms": 0,
+   "llm": [],
+   "verdict": "pass"
+  },
+  {
+   "id": "chat-06",
+   "group": "chat",
+   "text": "how are you today",
+   "room": null,
+   "kind": "chat",
+   "actions": [],
+   "entities": [],
+   "message": "",
+   "ms": 0,
+   "llm": [],
+   "verdict": "pass"
+  },
+  {
+   "id": "chat-07",
+   "group": "chat",
+   "text": "thanks",
+   "room": null,
+   "kind": "chat",
+   "actions": [],
+   "entities": [],
+   "message": "",
+   "ms": 0,
+   "llm": [],
+   "verdict": "pass"
+  },
+  {
+   "id": "chat-08",
+   "group": "chat",
+   "text": "what can you do",
+   "room": null,
+   "kind": "chat",
+   "actions": [],
+   "entities": [],
+   "message": "",
+   "ms": 0,
+   "llm": [],
+   "verdict": "recorded"
+  },
+  {
+   "id": "chat-09",
+   "group": "chat",
+   "text": "what is halloween",
+   "room": null,
+   "kind": "chat",
+   "actions": [],
+   "entities": [],
+   "message": "",
+   "ms": 0,
+   "llm": [],
+   "verdict": "pass"
+  },
+  {
+   "id": "chat-10",
+   "group": "chat",
+   "text": "remind me to buy milk",
+   "room": null,
+   "kind": "chat",
+   "actions": [],
+   "entities": [],
+   "message": "",
+   "ms": 0,
+   "llm": [],
+   "verdict": "pass"
+  },
+  {
+   "id": "rand1-01",
+   "group": "random",
+   "text": "yo turn the workshop off",
+   "room": null,
+   "kind": "chat",
+   "actions": [],
+   "entities": [],
+   "message": "",
+   "ms": 1,
+   "llm": [],
+   "verdict": "missed"
+  },
+  {
+   "id": "rand1-02",
+   "group": "random",
+   "text": "can we get some light in the kitchen",
+   "room": null,
+   "kind": "chat",
+   "actions": [],
+   "entities": [],
+   "message": "",
+   "ms": 0,
+   "llm": [],
+   "verdict": "missed"
+  },
+  {
+   "id": "rand1-03",
+   "group": "random",
+   "text": "bedroom lights to 10 percent",
+   "room": null,
+   "kind": "action",
+   "actions": [
+    {
+     "service": "light.turn_on",
+     "entity_id": "light.bedroom_lights",
+     "data": {
+      "brightness_pct": 10
+     }
+    }
+   ],
+   "entities": [],
+   "message": "Updating Bedroom Lights.",
+   "ms": 1,
+   "llm": [],
+   "verdict": "pass"
+  },
+  {
+   "id": "rand1-04",
+   "group": "random",
+   "text": "please switch the bar off",
+   "room": null,
+   "kind": "clarify",
+   "actions": [],
+   "entities": [
+    "light.bar_strip",
+    "media_player.bar_speaker"
+   ],
+   "message": "Which one: Bar Strip or Bar Speaker?",
+   "ms": 1,
+   "llm": [],
+   "verdict": "missed"
+  },
+  {
+   "id": "rand1-05",
+   "group": "random",
+   "text": "make the workshop and the bar green",
+   "room": null,
+   "kind": "refuse",
+   "actions": [],
+   "entities": [],
+   "message": "I couldn't find a device called workshop and bar.",
+   "ms": 1,
+   "llm": [],
+   "verdict": "missed"
+  },
+  {
+   "id": "rand1-06",
+   "group": "random",
+   "text": "shut everything down in the office",
+   "room": null,
+   "kind": "chat",
+   "actions": [],
+   "entities": [],
+   "message": "",
+   "ms": 0,
+   "llm": [],
+   "verdict": "missed"
+  },
+  {
+   "id": "rand1-07",
+   "group": "random",
+   "text": "lights on in the bathroom",
+   "room": null,
+   "kind": "chat",
+   "actions": [],
+   "entities": [],
+   "message": "",
+   "ms": 0,
+   "llm": [],
+   "verdict": "missed"
+  },
+  {
+   "id": "rand1-08",
+   "group": "random",
+   "text": "turn down the lights in the living room",
+   "room": null,
+   "kind": "action",
+   "actions": [
+    {
+     "service": "light.turn_on",
+     "entity_id": "light.living_room_ceiling",
+     "data": {
+      "brightness_step_pct": -20
+     }
+    },
+    {
+     "service": "light.turn_on",
+     "entity_id": "light.living_room_floor",
+     "data": {
+      "brightness_step_pct": -20
+     }
+    }
+   ],
+   "entities": [],
+   "message": "Updating Ceiling Light in the Living Room, Floor Lamp in the Living Room.",
+   "ms": 0,
+   "llm": [],
+   "verdict": "pass"
+  },
+  {
+   "id": "rand1-09",
+   "group": "random",
+   "text": "can you turn off the basement lights",
+   "room": null,
+   "kind": "action",
+   "actions": [
+    {
+     "service": "light.turn_off",
+     "entity_id": "light.bar_strip",
+     "data": {}
+    },
+    {
+     "service": "light.turn_off",
+     "entity_id": "light.workshop_a",
+     "data": {}
+    },
+    {
+     "service": "light.turn_off",
+     "entity_id": "light.workshop_b",
+     "data": {}
+    }
+   ],
+   "entities": [],
+   "message": "Turning off Bar Strip, Workshop Light A, Workshop Light B.",
+   "ms": 1,
+   "llm": [],
+   "verdict": "pass"
+  },
+  {
+   "id": "rand1-10",
+   "group": "random",
+   "text": "set the mood for movie night in the living room",
+   "room": null,
+   "kind": "action",
+   "actions": [
+    {
+     "service": "light.turn_on",
+     "entity_id": "light.living_room_ceiling",
+     "data": {
+      "brightness_pct": 12,
+      "color_temp_kelvin": 2200
+     }
+    },
+    {
+     "service": "light.turn_on",
+     "entity_id": "light.living_room_floor",
+     "data": {
+      "brightness_pct": 12,
+      "color_temp_kelvin": 2200
+     }
+    }
+   ],
+   "entities": [],
+   "message": "Setting the living room to movie night: 2 lights.",
+   "ms": 1,
+   "llm": [],
+   "verdict": "recorded"
+  },
+  {
+   "id": "rand1-11",
+   "group": "random",
+   "text": "open the curtain a bit",
+   "room": null,
+   "kind": "refuse",
+   "actions": [],
+   "entities": [],
+   "message": "I couldn't find a device called curtain a bit.",
+   "ms": 0,
+   "llm": [],
+   "verdict": "missed"
+  },
+  {
+   "id": "rand1-12",
+   "group": "random",
+   "text": "i'm cold",
+   "room": null,
+   "kind": "chat",
+   "actions": [],
+   "entities": [],
+   "message": "",
+   "ms": 0,
+   "llm": [],
+   "verdict": "pass"
+  },
+  {
+   "id": "rand1-13",
+   "group": "random",
+   "text": "turn off workshop light a and workshop light b",
+   "room": null,
+   "kind": "action",
+   "actions": [
+    {
+     "service": "light.turn_off",
+     "entity_id": "light.workshop_a",
+     "data": {}
+    },
+    {
+     "service": "light.turn_off",
+     "entity_id": "light.workshop_b",
+     "data": {}
+    }
+   ],
+   "entities": [],
+   "message": "Turning off Workshop Light A. Turning off Workshop Light B.",
+   "ms": 2,
+   "llm": [],
+   "verdict": "pass"
+  },
+  {
+   "id": "rand1-14",
+   "group": "random",
+   "text": "are the workshop lights on",
+   "room": null,
+   "kind": "chat",
+   "actions": [],
+   "entities": [],
+   "message": "",
+   "ms": 1,
+   "llm": [],
+   "verdict": "wrong_response"
+  },
+  {
+   "id": "rand1-15",
+   "group": "random",
+   "text": "turn all the lights off upstairs please",
+   "room": null,
+   "kind": "chat",
+   "actions": [],
+   "entities": [],
+   "message": "",
+   "ms": 1,
+   "llm": [],
+   "verdict": "missed"
+  },
+  {
+   "id": "rand1-16",
+   "group": "random",
+   "text": "crank up the music in the bar",
+   "room": null,
+   "kind": "chat",
+   "actions": [],
+   "entities": [],
+   "message": "",
+   "ms": 0,
+   "llm": [],
+   "verdict": "missed"
+  },
+  {
+   "id": "rand1-17",
+   "group": "random",
+   "text": "make it purple in here",
+   "room": "bar",
+   "kind": "chat",
+   "actions": [],
+   "entities": [],
+   "message": "",
+   "ms": 1,
+   "llm": [],
+   "verdict": "missed"
+  },
+  {
+   "id": "rand1-18",
+   "group": "random",
+   "text": "turn the heat up in the bedroom",
+   "room": null,
+   "kind": "chat",
+   "actions": [],
+   "entities": [],
+   "message": "",
+   "ms": 1,
+   "llm": [],
+   "verdict": "missed"
+  },
+  {
+   "id": "rand1-19",
+   "group": "random",
+   "text": "give me full brightness in the workshop",
+   "room": null,
+   "kind": "chat",
+   "actions": [],
+   "entities": [],
+   "message": "",
+   "ms": 1,
+   "llm": [],
+   "verdict": "missed"
+  },
+  {
+   "id": "rand1-20",
+   "group": "random",
+   "text": "turn off the tv",
+   "room": null,
+   "kind": "clarify",
+   "actions": [],
+   "entities": [
+    "media_player.bedroom_tv",
+    "media_player.living_room_tv"
+   ],
+   "message": "Which one: Bedroom TV or Living Room TV?",
+   "ms": 0,
+   "llm": [],
+   "verdict": "pass"
+  },
+  {
+   "id": "rand1-21",
+   "group": "random",
+   "text": "is the coffee maker on",
+   "room": null,
+   "kind": "answer",
+   "actions": [],
+   "entities": [
+    "switch.coffee_maker"
+   ],
+   "message": "Coffee Maker in the Kitchen is off.",
+   "ms": 1,
+   "llm": [],
+   "verdict": "pass"
+  },
+  {
+   "id": "rand1-22",
+   "group": "random",
+   "text": "kill the music",
+   "room": null,
+   "kind": "chat",
+   "actions": [],
+   "entities": [],
+   "message": "",
+   "ms": 0,
+   "llm": [],
+   "verdict": "missed"
+  },
+  {
+   "id": "rand1-23",
+   "group": "random",
+   "text": "turn on the lights in the workshop and turn off the bar strip",
+   "room": null,
+   "kind": "action",
+   "actions": [
+    {
+     "service": "light.turn_on",
+     "entity_id": "light.workshop_a",
+     "data": {}
+    },
+    {
+     "service": "light.turn_on",
+     "entity_id": "light.workshop_b",
+     "data": {}
+    },
+    {
+     "service": "light.turn_off",
+     "entity_id": "light.bar_strip",
+     "data": {}
+    }
+   ],
+   "entities": [],
+   "message": "Turning on Workshop Light A, Workshop Light B. Turning off Bar Strip.",
+   "ms": 1,
+   "llm": [],
+   "verdict": "pass"
+  },
+  {
+   "id": "rand1-24",
+   "group": "random",
+   "text": "whats the temperature upstairs",
+   "room": null,
+   "kind": "chat",
+   "actions": [],
+   "entities": [],
+   "message": "",
+   "ms": 0,
+   "llm": [],
+   "verdict": "wrong_response"
+  },
+  {
+   "id": "rand1-25",
+   "group": "random",
+   "text": "open everything in the garage",
+   "room": null,
+   "kind": "refuse",
+   "actions": [],
+   "entities": [],
+   "message": "I couldn't find a device called everything in garage.",
+   "ms": 0,
+   "llm": [],
+   "verdict": "pass"
+  },
+  {
+   "id": "rand1-26",
+   "group": "random",
+   "text": "lock up",
+   "room": null,
+   "kind": "refuse",
+   "actions": [],
+   "entities": [],
+   "message": "I couldn't find a device called up.",
+   "ms": 0,
+   "llm": [],
+   "verdict": "recorded"
+  },
+  {
+   "id": "rand1-27",
+   "group": "random",
+   "text": "warm white in the bedroom",
+   "room": null,
+   "kind": "chat",
+   "actions": [],
+   "entities": [],
+   "message": "",
+   "ms": 0,
+   "llm": [],
+   "verdict": "missed"
+  },
+  {
+   "id": "rand1-28",
+   "group": "random",
+   "text": "put the basement lights on 20 percent",
+   "room": null,
+   "kind": "chat",
+   "actions": [],
+   "entities": [],
+   "message": "",
+   "ms": 1,
+   "llm": [],
+   "verdict": "missed"
+  },
+  {
+   "id": "rand1-29",
+   "group": "random",
+   "text": "how many lights are on",
+   "room": null,
+   "kind": "answer",
+   "actions": [],
+   "entities": [
+    "light.living_room_ceiling",
+    "light.kitchen_counters",
+    "light.office_overhead",
+    "light.bar_strip",
+    "light.workshop_a",
+    "light.workshop_b",
+    "light.living_room_group"
+   ],
+   "message": "7 lights are on.",
+   "ms": 0,
+   "llm": [],
+   "verdict": "pass"
+  },
+  {
+   "id": "rand1-30",
+   "group": "random",
+   "text": "turn off all the lights",
+   "room": null,
+   "kind": "clarify",
+   "actions": [],
+   "entities": [],
+   "message": "Which room's lights?",
+   "ms": 0,
+   "llm": [],
+   "verdict": "recorded"
+  }
+ ]
+}

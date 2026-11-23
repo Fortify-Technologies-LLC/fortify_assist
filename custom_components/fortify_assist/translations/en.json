@@ -1,0 +1,270 @@
+{
+  "config": {
+    "step": {
+      "persona": {
+        "title": "Who is your assistant?",
+        "description": "Choose how the assistant introduces itself and how it sounds. Everything except the name is optional, and you can change it later.",
+        "data": {
+          "agent_name": "Name",
+          "spoken_name": "Spoken name",
+          "acronym_expansion": "What the name stands for",
+          "owner": "Who it works for",
+          "maker": "Who made it",
+          "purpose": "Purpose",
+          "personality": "Personality",
+          "traits": "Extra personality traits"
+        },
+        "data_description": {
+          "agent_name": "How the name is written, for example N.O.V.A.",
+          "spoken_name": "How it is said, for example Nova. Leave empty if it is the same as the name.",
+          "acronym_expansion": "Only if the name is an acronym.",
+          "owner": "A person or household, for example the Smiths.",
+          "purpose": "One sentence about what the assistant is for.",
+          "personality": "Changes the wording of answers. It never changes what the assistant does.",
+          "traits": "Free text that steers the tone of open conversation, for example: curious, loves astronomy."
+        }
+      },
+      "primary": {
+        "title": "Language model",
+        "description": "An optional language model helps with unusual phrasing and open conversation. Commands and questions about your home work without one. Choose where it runs.",
+        "data": {
+          "provider": "Provider",
+          "url": "Server address",
+          "api_key": "API key"
+        },
+        "data_description": {
+          "url": "Leave empty for the default of the chosen provider.",
+          "api_key": "Only needed for hosted services."
+        }
+      },
+      "primary_model": {
+        "title": "Choose the model",
+        "data": {
+          "model": "Model"
+        }
+      },
+      "fallback": {
+        "title": "Fallback language model",
+        "description": "Optional. Used only if the first language model fails, for example a hosted service as a backup for a local model. Choose none to skip.",
+        "data": {
+          "provider": "Provider",
+          "url": "Server address",
+          "api_key": "API key"
+        }
+      },
+      "fallback_model": {
+        "title": "Choose the fallback model",
+        "data": {
+          "model": "Model"
+        }
+      },
+      "feeds": {
+        "title": "News and status feeds",
+        "description": "Optional, and you can add feeds later. Give each feed a name you would say, and its address. Ask by name: \"what's new in sports\", \"anything on spaceflight\", \"is GitHub down\". \"What's the news\" reads the feeds with news in their name. Any name works. Leave a pair empty to skip it. Two empty pairs are always added when you come back, up to 20 feeds. Feed text is only read out, never treated as a command.",
+        "data": {
+          "name_1": "Feed 1 name",
+          "url_1": "Feed 1 address",
+          "name_2": "Feed 2 name",
+          "url_2": "Feed 2 address",
+          "name_3": "Feed 3 name",
+          "url_3": "Feed 3 address",
+          "name_4": "Feed 4 name",
+          "url_4": "Feed 4 address",
+          "name_5": "Feed 5 name",
+          "url_5": "Feed 5 address",
+          "name_6": "Feed 6 name",
+          "url_6": "Feed 6 address",
+          "name_7": "Feed 7 name",
+          "url_7": "Feed 7 address",
+          "name_8": "Feed 8 name",
+          "url_8": "Feed 8 address",
+          "name_9": "Feed 9 name",
+          "url_9": "Feed 9 address",
+          "name_10": "Feed 10 name",
+          "url_10": "Feed 10 address",
+          "name_11": "Feed 11 name",
+          "url_11": "Feed 11 address",
+          "name_12": "Feed 12 name",
+          "url_12": "Feed 12 address",
+          "name_13": "Feed 13 name",
+          "url_13": "Feed 13 address",
+          "name_14": "Feed 14 name",
+          "url_14": "Feed 14 address",
+          "name_15": "Feed 15 name",
+          "url_15": "Feed 15 address",
+          "name_16": "Feed 16 name",
+          "url_16": "Feed 16 address",
+          "name_17": "Feed 17 name",
+          "url_17": "Feed 17 address",
+          "name_18": "Feed 18 name",
+          "url_18": "Feed 18 address",
+          "name_19": "Feed 19 name",
+          "url_19": "Feed 19 address",
+          "name_20": "Feed 20 name",
+          "url_20": "Feed 20 address",
+          "feed_summary": "Summarize with the language model (experimental)",
+          "feed_count": "Items to read",
+          "feed_entities": "Feeds already in Home Assistant (optional)"
+        },
+        "data_description": {
+          "name_1": "For example: Preferred news",
+          "name_2": "For example: Weather",
+          "name_3": "For example: Sports",
+          "name_4": "Anything you like: Local news, Spaceflight, Tech, a status page...",
+          "url_1": "The RSS or Atom address, usually ending in /rss, /feed or .xml.",
+          "feed_summary": "Off: the headlines are read, and you get a summary only when you ask for one, for example \"summarize the news\". Summaries need a language model. If a summary names anything the feed doesn't say, the headlines are read instead, but small models can still change what a story means.",
+          "feed_count": "How many items to read or summarize per answer.",
+          "feed_entities": "Only if you already use Feedparser or Feed Reader. Neither is required."
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "Could not reach the server. Check the address and that the server is running.",
+      "feed_failed": "This address could not be read as an RSS or Atom feed.",
+      "feed_missing": "Add the feed's address, or clear the name.",
+      "feed_duplicate": "Another feed already has this name."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Fortify Assist settings",
+        "menu_options": {
+          "persona": "Name and personality",
+          "primary": "Language model",
+          "fallback": "Fallback language model",
+          "feeds": "News and status feeds",
+          "behavior": "Behavior"
+        }
+      },
+      "persona": {
+        "title": "Who is your assistant?",
+        "data": {
+          "agent_name": "Name",
+          "spoken_name": "Spoken name",
+          "acronym_expansion": "What the name stands for",
+          "owner": "Who it works for",
+          "maker": "Who made it",
+          "purpose": "Purpose",
+          "personality": "Personality",
+          "traits": "Extra personality traits"
+        }
+      },
+      "primary": {
+        "title": "Language model",
+        "data": {
+          "provider": "Provider",
+          "url": "Server address",
+          "api_key": "API key"
+        }
+      },
+      "primary_model": {
+        "title": "Choose the model",
+        "data": {
+          "model": "Model"
+        }
+      },
+      "fallback": {
+        "title": "Fallback language model",
+        "data": {
+          "provider": "Provider",
+          "url": "Server address",
+          "api_key": "API key"
+        }
+      },
+      "fallback_model": {
+        "title": "Choose the fallback model",
+        "data": {
+          "model": "Model"
+        }
+      },
+      "feeds": {
+        "title": "News and status feeds",
+        "description": "Give each feed a name you would say, and its address. Ask by name: \"what's new in sports\", \"anything on spaceflight\", \"is GitHub down\". \"What's the news\" reads the feeds with news in their name. Any name works. Leave a pair empty to skip it. Two empty pairs are always added when you come back, up to 20 feeds. Feed text is only read out, never treated as a command.",
+        "data": {
+          "name_1": "Feed 1 name",
+          "url_1": "Feed 1 address",
+          "name_2": "Feed 2 name",
+          "url_2": "Feed 2 address",
+          "name_3": "Feed 3 name",
+          "url_3": "Feed 3 address",
+          "name_4": "Feed 4 name",
+          "url_4": "Feed 4 address",
+          "name_5": "Feed 5 name",
+          "url_5": "Feed 5 address",
+          "name_6": "Feed 6 name",
+          "url_6": "Feed 6 address",
+          "name_7": "Feed 7 name",
+          "url_7": "Feed 7 address",
+          "name_8": "Feed 8 name",
+          "url_8": "Feed 8 address",
+          "name_9": "Feed 9 name",
+          "url_9": "Feed 9 address",
+          "name_10": "Feed 10 name",
+          "url_10": "Feed 10 address",
+          "name_11": "Feed 11 name",
+          "url_11": "Feed 11 address",
+          "name_12": "Feed 12 name",
+          "url_12": "Feed 12 address",
+          "name_13": "Feed 13 name",
+          "url_13": "Feed 13 address",
+          "name_14": "Feed 14 name",
+          "url_14": "Feed 14 address",
+          "name_15": "Feed 15 name",
+          "url_15": "Feed 15 address",
+          "name_16": "Feed 16 name",
+          "url_16": "Feed 16 address",
+          "name_17": "Feed 17 name",
+          "url_17": "Feed 17 address",
+          "name_18": "Feed 18 name",
+          "url_18": "Feed 18 address",
+          "name_19": "Feed 19 name",
+          "url_19": "Feed 19 address",
+          "name_20": "Feed 20 name",
+          "url_20": "Feed 20 address",
+          "feed_summary": "Summarize with the language model (experimental)",
+          "feed_count": "Items to read",
+          "feed_entities": "Feeds already in Home Assistant (optional)"
+        },
+        "data_description": {
+          "name_1": "For example: Preferred news",
+          "name_2": "For example: Weather",
+          "name_3": "For example: Sports",
+          "name_4": "Anything you like: Local news, Spaceflight, Tech, a status page...",
+          "url_1": "The RSS or Atom address, usually ending in /rss, /feed or .xml.",
+          "feed_summary": "Off: the headlines are read, and you get a summary only when you ask for one, for example \"summarize the news\". Summaries need a language model. If a summary names anything the feed doesn't say, the headlines are read instead, but small models can still change what a story means.",
+          "feed_count": "How many items to read or summarize per answer.",
+          "feed_entities": "Only if you already use Feedparser or Feed Reader. Neither is required."
+        }
+      },
+      "behavior": {
+        "title": "Behavior",
+        "data": {
+          "confirm_sensitive": "Ask before unlocking, disarming or opening garage doors",
+          "strip_assistant_name": "Ignore the assistant's name at the start or end of a request",
+          "ha_fallback": "Let Home Assistant's own Assist handle what this assistant doesn't (timers, lists, your custom sentences)",
+          "home_chat": "Let the language model answer questions about the home (larger models only; small ones make things up)",
+          "weather_entity": "Weather to report"
+        },
+        "data_description": {
+          "weather_entity": "Optional. Used for \"what's the weather\". Left empty, the first available weather entity is used."
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "Could not reach the server. Check the address and that the server is running.",
+      "feed_failed": "This address could not be read as an RSS or Atom feed.",
+      "feed_missing": "Add the feed's address, or clear the name.",
+      "feed_duplicate": "Another feed already has this name."
+    }
+  },
+  "selector": {
+    "provider": {
+      "options": {
+        "none": "None",
+        "ollama": "Ollama",
+        "openai": "OpenAI-compatible (llama.cpp, LM Studio, vLLM, OpenAI, ...)"
+      }
+    }
+  }
+}

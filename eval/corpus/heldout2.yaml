@@ -1,0 +1,50 @@
+# Second held-out set. Written after M2 tuning and run ONCE before any further change.
+# Do not tune against it; when it has been used, retire it and write heldout3.
+- {id: ho2-001, category: heldout2, utterance: put the kitchen speaker on pause,
+   expect: {kind: action, actions: [{service: media_player.media_pause, entity_id: media_player.kitchen_speaker}]}}
+- {id: ho2-002, category: heldout2, utterance: turn down the bar speaker,
+   expect: {kind: action, actions: [{service: media_player.volume_down, entity_id: media_player.bar_speaker}]}}
+- {id: ho2-003, category: heldout2, utterance: i need the garage lights,
+   expect: {kind: action, actions: [{service: light.turn_on, entity_id: light.garage_overhead}]}}
+- {id: ho2-004, category: heldout2, utterance: switch the coffee maker on,
+   expect: {kind: action, actions: [{service: switch.turn_on, entity_id: switch.coffee_maker}]}}
+- {id: ho2-005, category: heldout2, utterance: start the coffee maker,
+   expect: {kind: action, actions: [{service: switch.turn_on, entity_id: switch.coffee_maker}]}}
+- {id: ho2-006, category: heldout2, utterance: is the back door locked,
+   expect: {kind: answer, entities: [lock.back_door]}}
+- {id: ho2-007, category: heldout2, utterance: could you open up the curtain in the bedroom,
+   expect: {kind: action, actions: [{service: cover.open_cover, entity_id: cover.bedroom_curtain}]}}
+- {id: ho2-008, category: heldout2, utterance: set the main floor thermostat to 68 degrees,
+   expect: {kind: action, actions: [{service: climate.set_temperature, entity_id: climate.main_floor, data: {temperature: 68}}]}}
+- {id: ho2-009, category: heldout2, utterance: put on the movie night scene,
+   expect: {kind: action, actions: [{service: scene.turn_on, entity_id: scene.movie_night}]}}
+- {id: ho2-010, category: heldout2, utterance: run goodnight,
+   expect: {kind: action, actions: [{service: script.turn_on, entity_id: script.goodnight}]}}
+- {id: ho2-011, category: heldout2, utterance: dim the vanity light to 20 percent,
+   expect: {kind: action, actions: [{service: light.turn_on, entity_id: light.bathroom_vanity, data: {brightness_pct: 20}}]}}
+- {id: ho2-012, category: heldout2, utterance: get the floor lamp going,
+   expect: {kind: action, actions: [{service: light.turn_on, entity_id: light.living_room_floor}]}}
+- {id: ho2-013, category: heldout2, utterance: silence the siren,
+   expect: {kind: refuse}, notes: no siren in this house}
+- {id: ho2-014, category: heldout2, utterance: unlock the back door please,
+   expect: {kind: confirm}}
+- {id: ho2-015, category: heldout2, utterance: turn on the 3d printer and the space heater,
+   expect: {kind: action, actions: [{service: switch.turn_on, entity_id: switch.printer_3d}, {service: switch.turn_on, entity_id: switch.office_heater}]}}
+- {id: ho2-016, category: heldout2, utterance: bar strip to 75 percent,
+   expect: {kind: action, actions: [{service: light.turn_on, entity_id: light.bar_strip, data: {brightness_pct: 75}}]}}
+- {id: ho2-017, category: heldout2, utterance: close the curtain and turn off the bedroom fan,
+   expect: {kind: action, actions: [{service: cover.close_cover, entity_id: cover.bedroom_curtain}, {service: fan.turn_off, entity_id: fan.bedroom_fan}]}}
+- {id: ho2-018, category: heldout2, utterance: how's the weather today,
+   expect: {kind: chat}}
+- {id: ho2-019, category: heldout2, utterance: remind me to buy milk,
+   expect: {kind: chat}}
+- {id: ho2-020, category: heldout2, utterance: turn off everything,
+   expect: {kind: clarify}, notes: whole-house scope is never a silent action}
+- {id: ho2-021, category: heldout2, utterance: open the garage door please,
+   expect: {kind: confirm}}
+- {id: ho2-022, category: heldout2, utterance: the vanity light - can you turn it on,
+   expect: {kind: action, actions: [{service: light.turn_on, entity_id: light.bathroom_vanity}]}}
+- {id: ho2-023, category: heldout2, utterance: set the bedroom tv volume to 25,
+   expect: {kind: action, actions: [{service: media_player.volume_set, entity_id: media_player.bedroom_tv, data: {volume_level: 0.25}}]}}
+- {id: ho2-024, category: heldout2, utterance: turn on the light,
+   expect: {kind: clarify}, notes: no room context and several rooms have lights}

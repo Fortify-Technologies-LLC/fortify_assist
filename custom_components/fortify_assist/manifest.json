@@ -1,0 +1,14 @@
+{
+  "domain": "fortify_assist",
+  "name": "Fortify Assist",
+  "after_dependencies": ["assist_pipeline", "intent"],
+  "codeowners": ["@fortifytechnologies"],
+  "config_flow": true,
+  "dependencies": ["conversation"],
+  "documentation": "https://github.com/Fortify-Technologies-LLC/fortify_assist",
+  "integration_type": "service",
+  "iot_class": "local_polling",
+  "issue_tracker": "https://github.com/Fortify-Technologies-LLC/fortify_assist/issues",
+  "requirements": [],
+  "version": "0.1.8"
+}

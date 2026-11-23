@@ -1,0 +1,25 @@
+[project]
+name = "fortify-assist-eval"
+version = "0.1.0"
+description = "Accuracy evaluation harness for Fortify Assist, a high-accuracy Home Assistant conversation agent"
+license = "Apache-2.0"
+requires-python = ">=3.12"
+dependencies = ["pyyaml>=6.0"]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0"]
+
+[project.scripts]
+fortify-eval = "fortify_eval.cli:main"
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+package-dir = {"" = "src", "fortify_core" = "custom_components/fortify_assist/core"}
+packages = ["fortify_eval", "fortify_core"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+

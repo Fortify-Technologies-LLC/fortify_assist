@@ -1,0 +1,7 @@
+# For the Home Assistant integration tests in tests_ha/ (the pure-Python core needs only pyyaml and pytest).
+# Pinned to the versions the tests were last run against; the plugin brings the matching Home Assistant.
+pytest-homeassistant-custom-component==0.13.374
+homeassistant==2026.10.3
+hassil==3.12.1
+home-assistant-intents==2026.10.6
+gazetteer-matcher==1.1.0

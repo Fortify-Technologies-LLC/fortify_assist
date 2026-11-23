@@ -1,0 +1,69 @@
+# Synthetic test house. Deliberately contains the traps that break LLM-only control:
+# duplicate names in different areas, near-identical names, aliases, an area-named
+# group, unavailable and unexposed entities, and sensitive devices.
+floors:
+  - {id: main, name: Main Floor}
+  - {id: upstairs, name: Upstairs}
+  - {id: basement, name: Basement}
+
+areas:
+  - {id: living_room, name: Living Room, floor: main}
+  - {id: kitchen, name: Kitchen, floor: main}
+  - {id: garage, name: Garage, floor: main}
+  - {id: bedroom, name: Bedroom, floor: upstairs}
+  - {id: office, name: Office, floor: upstairs}
+  - {id: bathroom, name: Bathroom, floor: upstairs}
+  - {id: bar, name: Bar, floor: basement}
+  - {id: workshop, name: Workshop, floor: basement}
+
+entities:
+  # Lights
+  - {id: light.living_room_ceiling, name: Ceiling Light, area: living_room, state: "on"}
+  - {id: light.living_room_floor, name: Floor Lamp, area: living_room, state: "off", aliases: [reading lamp]}
+  - {id: light.kitchen_ceiling, name: Ceiling Light, area: kitchen, state: "off"}
+  - {id: light.kitchen_counters, name: Counter Lights, area: kitchen, state: "on", aliases: [under cabinet lights], attributes: {brightness: 255, supported_color_modes: [color_temp, hs, xy]}}
+  - {id: light.bedroom_lamp, name: Lamp, area: bedroom, state: "off", attributes: {supported_color_modes: [color_temp, hs], brightness: 120}}
+  - {id: light.bedroom_lights, name: Bedroom Lights, area: bedroom, state: "off", attributes: {supported_color_modes: [color_temp], brightness: 200}}
+  - {id: light.office_lamp, name: Lamp, area: office, state: "off"}
+  - {id: light.office_overhead, name: Overhead Light, area: office, state: "on", attributes: {brightness: 128}}
+  - {id: light.bathroom_vanity, name: Vanity Light, area: bathroom, state: "off"}
+  - {id: light.garage_overhead, name: Garage Lights, area: garage, state: "off"}
+  - {id: light.bar_strip, name: Bar Strip, area: bar, state: "on", aliases: [led strip]}
+  - {id: light.workshop_a, name: Workshop Light A, area: workshop, state: "on"}
+  - {id: light.workshop_b, name: Workshop Light B, area: workshop, state: "on"}
+  - {id: light.living_room_group, name: Living Room, state: "on"}
+  - {id: light.deck, name: Deck Lights, state: "off", attributes: {supported_color_modes: [onoff]}}
+  - {id: light.broken_porch, name: Porch Light, state: unavailable}
+  - {id: light.hidden_closet, name: Closet Light, area: bedroom, state: "off", exposed: false}
+  # Switches and fans
+  - {id: switch.coffee_maker, name: Coffee Maker, area: kitchen, state: "off"}
+  - {id: switch.office_heater, name: Space Heater, area: office, state: "off"}
+  - {id: switch.printer_3d, name: 3D Printer, area: workshop, state: "off", aliases: [printer]}
+  - {id: fan.bedroom_fan, name: Bedroom Fan, area: bedroom, state: "off"}
+  - {id: fan.office_fan, name: Desk Fan, area: office, state: "off"}
+  # Covers
+  - {id: cover.living_room_blinds, name: Blinds, area: living_room, state: open, device_class: blind}
+  - {id: cover.bedroom_curtain, name: Curtain, area: bedroom, state: closed, device_class: curtain}
+  - {id: cover.garage_door, name: Garage Door, area: garage, state: closed, device_class: garage, sensitive: true}
+  # Locks and alarm
+  - {id: lock.front_door, name: Front Door Lock, state: locked, aliases: [front door], sensitive: true}
+  - {id: lock.back_door, name: Back Door Lock, state: locked, aliases: [back door], sensitive: true}
+  - {id: alarm_control_panel.house, name: House Alarm, state: armed_home, aliases: [alarm], sensitive: true}
+  # Climate
+  - {id: climate.upstairs, name: Upstairs Thermostat, area: bedroom, state: heat, aliases: [thermostat], attributes: {temperature: 70, current_temperature: 69}}
+  - {id: climate.main_floor, name: Main Floor Thermostat, area: living_room, state: heat}
+  # Media
+  - {id: media_player.living_room_tv, name: Living Room TV, area: living_room, state: "off", aliases: [television]}
+  - {id: media_player.bedroom_tv, name: Bedroom TV, area: bedroom, state: "off"}
+  - {id: media_player.kitchen_speaker, name: Kitchen Speaker, area: kitchen, state: idle, attributes: {volume_level: 0.25}}
+  - {id: media_player.bar_speaker, name: Bar Speaker, area: bar, state: playing, attributes: {volume_level: 0.4, media_title: Take Five, media_artist: Dave Brubeck}}
+  # Scenes and scripts
+  - {id: scene.movie_night, name: Movie Night, state: scening}
+  - {id: scene.good_morning, name: Good Morning, state: scening}
+  - {id: script.goodnight, name: Goodnight, state: "off"}
+  # Sensors (queries)
+  - {id: sensor.living_room_temperature, name: Living Room Temperature, area: living_room, state: "71.5", unit: "°F", device_class: temperature}
+  - {id: sensor.bedroom_temperature, name: Bedroom Temperature, area: bedroom, state: "68.0", unit: "°F", device_class: temperature}
+  - {id: sensor.garage_humidity, name: Garage Humidity, area: garage, state: "45", unit: "%", device_class: humidity}
+  - {id: binary_sensor.front_door_contact, name: Front Door, state: "off", device_class: door}
+  - {id: binary_sensor.garage_door_contact, name: Garage Door Sensor, area: garage, state: "off", device_class: door}

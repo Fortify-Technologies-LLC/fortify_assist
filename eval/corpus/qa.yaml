@@ -1,0 +1,72 @@
+# Questions about groups of devices. Expected answers are worked out by hand from
+# eval/houses/synthetic.yaml, not by the code under test. ANSWER entities are the devices the
+# answer is about: the matches for list/count/any, the counter-examples for a "no" to
+# "are all ...", or the whole scope for a "yes".
+- {id: qa-001, category: qa, utterance: which lights are on,
+   expect: {kind: answer, entities: [light.living_room_ceiling, light.kitchen_counters, light.office_overhead, light.bar_strip, light.workshop_a, light.workshop_b, light.living_room_group]}}
+- {id: qa-002, category: qa, utterance: how many lights are on,
+   expect: {kind: answer, entities: [light.living_room_ceiling, light.kitchen_counters, light.office_overhead, light.bar_strip, light.workshop_a, light.workshop_b, light.living_room_group]}}
+- {id: qa-003, category: qa, utterance: what lights are on in the kitchen,
+   expect: {kind: answer, entities: [light.kitchen_counters]}}
+- {id: qa-004, category: qa, utterance: are any lights on in the workshop,
+   expect: {kind: answer, entities: [light.workshop_a, light.workshop_b]}}
+- {id: qa-005, category: qa, utterance: are any lights on in the bedroom,
+   expect: {kind: answer, entities: []}}
+- {id: qa-006, category: qa, utterance: is anything on in the garage,
+   expect: {kind: answer, entities: []}}
+- {id: qa-007, category: qa, utterance: which doors are locked,
+   expect: {kind: answer, entities: [lock.front_door, lock.back_door]}}
+- {id: qa-008, category: qa, utterance: are all the doors locked,
+   expect: {kind: answer, entities: [lock.front_door, lock.back_door]}}
+- {id: qa-009, category: qa, utterance: are any doors unlocked,
+   expect: {kind: answer, entities: []}}
+- {id: qa-010, category: qa, utterance: is anything open,
+   expect: {kind: answer, entities: [cover.living_room_blinds]}}
+- {id: qa-011, category: qa, utterance: are all the lights off,
+   expect: {kind: answer, entities: [light.living_room_ceiling, light.kitchen_counters, light.office_overhead, light.bar_strip, light.workshop_a, light.workshop_b, light.living_room_group]}}
+- {id: qa-012, category: qa, utterance: are all the fans off,
+   expect: {kind: answer, entities: [fan.bedroom_fan, fan.office_fan]}}
+- {id: qa-013, category: qa, utterance: which switches are on,
+   expect: {kind: answer, entities: []}}
+- {id: qa-014, category: qa, utterance: what is on in the workshop,
+   expect: {kind: answer, entities: [light.workshop_a, light.workshop_b]}}
+- {id: qa-015, category: qa, utterance: which lights are off in the bedroom,
+   expect: {kind: answer, entities: [light.bedroom_lamp, light.bedroom_lights]}}
+- {id: qa-016, category: qa, utterance: what are the kitchen lights doing,
+   expect: {kind: chat}, notes: phrasing the rules do not cover; must not guess}
+- {id: qa-017, category: qa, utterance: how bright is the office overhead light,
+   expect: {kind: answer, entities: [light.office_overhead]}}
+- {id: qa-018, category: qa, utterance: what is the volume of the bar speaker,
+   expect: {kind: answer, entities: [media_player.bar_speaker]}}
+- {id: qa-019, category: qa, utterance: what is the thermostat set to,
+   expect: {kind: answer, entities: [climate.upstairs]}}
+- {id: qa-020, category: qa, utterance: what is playing on the bar speaker,
+   expect: {kind: answer, entities: [media_player.bar_speaker]}}
+- {id: qa-021, category: qa, utterance: what is playing,
+   expect: {kind: answer, entities: [media_player.bar_speaker]}}
+- {id: qa-022, category: qa, utterance: how many doors are locked,
+   expect: {kind: answer, entities: [lock.front_door, lock.back_door]}}
+- {id: qa-023, category: qa, utterance: which robots are on,
+   expect: {kind: chat}, notes: unknown class goes to the chat model, never a made-up list}
+- {id: qa-024, category: qa, utterance: are all the doors on,
+   expect: {kind: chat}, notes: doors cannot be on; do not invent an answer}
+- {id: qa-025, category: qa, utterance: which lights are on in the dungeon,
+   expect: {kind: chat}, notes: no such room}
+- {id: qa-026, category: qa, utterance: what is the brightness of the porch light,
+   expect: {kind: answer, entities: [light.broken_porch]}, notes: unavailable device is reported as unavailable}
+- {id: qa-027, category: qa, utterance: is everything off,
+   expect: {kind: answer, entities: [light.living_room_ceiling, light.kitchen_counters, light.office_overhead, light.bar_strip, light.workshop_a, light.workshop_b, light.living_room_group, media_player.bar_speaker]}}
+- {id: qa-028, category: qa, utterance: what lights are in the workshop,
+   expect: {kind: answer, entities: [light.workshop_a, light.workshop_b]}, notes: "inventory, what exists and not what is on"}
+- {id: qa-029, category: qa, utterance: how many lights are in the basement,
+   expect: {kind: answer, entities: [light.bar_strip, light.workshop_a, light.workshop_b]}, notes: a whole floor}
+- {id: qa-030, category: qa, utterance: what lights are in the bedroom,
+   expect: {kind: answer, entities: [light.bedroom_lamp, light.bedroom_lights]}}
+- {id: qa-031, category: qa, utterance: how many fans are there,
+   expect: {kind: answer, entities: [fan.bedroom_fan, fan.office_fan]}}
+- {id: qa-032, category: qa, utterance: list the locks,
+   expect: {kind: answer, entities: [lock.front_door, lock.back_door]}}
+- {id: qa-033, category: qa, utterance: what is in the garage,
+   expect: {kind: answer, entities: [light.garage_overhead, cover.garage_door, binary_sensor.garage_door_contact]}}
+- {id: qa-034, category: qa, utterance: is anything on in the kitchen,
+   expect: {kind: answer, entities: [light.kitchen_counters]}, notes: the idle kitchen speaker is not on}

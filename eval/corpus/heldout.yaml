@@ -1,0 +1,61 @@
+# Held-out phrasings written independently of the parser and the generator templates.
+# The expected outcome is what a good assistant SHOULD do, not what the code does today.
+# Keep adding to this file from real failures; never tune the parser by editing these.
+- {id: heldout-001, category: heldout, utterance: lights off in the garage,
+   expect: {kind: action, actions: [{service: light.turn_off, entity_id: light.garage_overhead}]}}
+- {id: heldout-002, category: heldout, utterance: kitchen lights on,
+   expect: {kind: action, actions: [{service: light.turn_on, entity_id: light.kitchen_ceiling}, {service: light.turn_on, entity_id: light.kitchen_counters}]}}
+- {id: heldout-003, category: heldout, utterance: bedroom fan off,
+   expect: {kind: action, actions: [{service: fan.turn_off, entity_id: fan.bedroom_fan}]}}
+- {id: heldout-004, category: heldout, utterance: shut the blinds,
+   expect: {kind: action, actions: [{service: cover.close_cover, entity_id: cover.living_room_blinds}]}}
+- {id: heldout-005, category: heldout, utterance: raise the blinds,
+   expect: {kind: action, actions: [{service: cover.open_cover, entity_id: cover.living_room_blinds}]}}
+- {id: heldout-006, category: heldout, utterance: kill the lights in the workshop,
+   expect: {kind: action, actions: [{service: light.turn_off, entity_id: light.workshop_a}, {service: light.turn_off, entity_id: light.workshop_b}]}}
+- {id: heldout-007, category: heldout, utterance: set the bedroom lamp to half,
+   expect: {kind: action, actions: [{service: light.turn_on, entity_id: light.bedroom_lamp, data: {brightness_pct: 50}}]}}
+- {id: heldout-008, category: heldout, utterance: make the thermostat 70,
+   expect: {kind: action, actions: [{service: climate.set_temperature, entity_id: climate.upstairs, data: {temperature: 70}}]}}
+- {id: heldout-009, category: heldout, utterance: put the tv on, context_area: living_room,
+   expect: {kind: action, actions: [{service: media_player.turn_on, entity_id: media_player.living_room_tv}]}}
+- {id: heldout-010, category: heldout, utterance: how warm is it in the living room,
+   expect: {kind: answer, entities: [sensor.living_room_temperature]}}
+- {id: heldout-011, category: heldout, utterance: is the garage door closed,
+   expect: {kind: answer, entities: [cover.garage_door]}}
+- {id: heldout-012, category: heldout, utterance: close up the garage,
+   expect: {kind: action, actions: [{service: cover.close_cover, entity_id: cover.garage_door}]}}
+- {id: heldout-013, category: heldout, utterance: "the lamp in the bedroom, turn it off",
+   expect: {kind: action, actions: [{service: light.turn_off, entity_id: light.bedroom_lamp}]}}
+- {id: heldout-014, category: heldout, utterance: could you maybe turn off the bedroom lamp,
+   expect: {kind: action, actions: [{service: light.turn_off, entity_id: light.bedroom_lamp}]}}
+- {id: heldout-015, category: heldout, utterance: "turn off the bedroom lamp, and the office lamp",
+   expect: {kind: action, actions: [{service: light.turn_off, entity_id: light.bedroom_lamp}, {service: light.turn_off, entity_id: light.office_lamp}]}}
+- {id: heldout-016, category: heldout, utterance: turn on the bedroom lamp and the bedroom fan,
+   expect: {kind: action, actions: [{service: light.turn_on, entity_id: light.bedroom_lamp}, {service: fan.turn_on, entity_id: fan.bedroom_fan}]}}
+- {id: heldout-017, category: heldout, utterance: unlock the front door for me,
+   expect: {kind: confirm}}
+- {id: heldout-018, category: heldout, utterance: turn off the alarm,
+   expect: {kind: confirm}, notes: ambiguous safety phrase; must never be a silent action}
+- {id: heldout-019, category: heldout, utterance: turn on the workshop light,
+   expect: {kind: clarify, entities: [light.workshop_a, light.workshop_b]}}
+- {id: heldout-020, category: heldout, utterance: turn on the lamp in the living room,
+   expect: {kind: action, actions: [{service: light.turn_on, entity_id: light.living_room_floor}]},
+   notes: only partial match in the named room}
+- {id: heldout-021, category: heldout, utterance: what time does the sun set,
+   expect: {kind: chat}}
+- {id: heldout-022, category: heldout, utterance: turn on the christmas tree,
+   expect: {kind: refuse}}
+- {id: heldout-023, category: heldout, utterance: switch off the bar strip,
+   expect: {kind: action, actions: [{service: light.turn_off, entity_id: light.bar_strip}]}}
+- {id: heldout-024, category: heldout, utterance: make it brighter in the bedroom,
+   expect: {kind: clarify}, notes: no target value; should ask or pass to the LLM, never guess a device}
+- {id: heldout-025, category: heldout, utterance: turn the volume up on the kitchen speaker,
+   expect: {kind: action, actions: [{service: media_player.volume_up, entity_id: media_player.kitchen_speaker}]}}
+- {id: heldout-026, category: heldout, utterance: is anything on in the garage,
+   expect: {kind: answer, entities: [light.garage_overhead]}}
+- {id: heldout-027, category: heldout, utterance: turn on the heater,
+   expect: {kind: action, actions: [{service: switch.turn_on, entity_id: switch.office_heater}]},
+   notes: unique partial name match with no room given}
+- {id: heldout-028, category: heldout, utterance: good night,
+   expect: {kind: confirm}, notes: "a greeting that is also a script's name must ask before it acts"}
